@@ -10,11 +10,13 @@
 
 2. Create Database in PostgreSQL(PG Admin) with name `bwgalaxy`.
 
-3. Run Spring Backend as a Spring Boot App or using command `mvn spring-boot:run`.
+3. Update `application.properties` file with your database/datasource username and password.
 
-4. Navigate to Frontend Directory `src/main/frontendd` using your terminal and Run `npm install` to download node packages.
+4. Run Spring Backend as a Spring Boot App or using command `mvn spring-boot:run`.
 
-5. Run Angular Frontend using `ng serve` and Navigate to `http://localhost:4200/` to view web application.
+5. Navigate to Frontend Directory `src/main/frontendd` using your terminal and Run `npm install` to download node packages.
+
+6. Run Angular Frontend using `ng serve` and Navigate to `http://localhost:4200/` to view web application.
 
 
 ### For Single Deployment
@@ -23,10 +25,12 @@
 
 2. Create Database in PostgreSQL(PG Admin) with name `bwgalaxy`.
 
-3. Navigate to Frontend Directory `src/main/frontendd` using your terminal and Run `npm install` to download node packages.
+3. Update `application.properties` file with your database/datasource username and password.
 
-4. Then Run `npm run deploy` command in Frontend directory.
+4. Navigate to Frontend Directory `src/main/frontendd` using your terminal and Run `npm install` to download node packages.
 
-5. Run Spring Backend as a Spring Boot App or using command `mvn spring-boot:run`.
+5. Then Run `npm run deploy` command in Frontend directory.
 
-6. Navigate to `http://localhost:9090/` to view web application.
+6. Run Spring Backend as a Spring Boot App or using command `mvn spring-boot:run`.
+
+7. Navigate to `http://localhost:9090/` to view web application.
