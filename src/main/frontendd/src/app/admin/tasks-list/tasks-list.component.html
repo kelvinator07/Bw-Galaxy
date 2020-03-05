@@ -1,0 +1,51 @@
+<h2 class="mt-5">Tasks List</h2>
+<p>
+  <a routerLink="/admin/tasks/new" class="btn btn-primary">New Task</a>
+</p>
+<!--<p>-->
+  <!--<input-->
+    <!--#query-->
+    <!--(keyup)="filter(query.value)"-->
+    <!--type="text" class="form-control" placeholder="Search...">-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--<ul class="list-group">-->
+    <!--<li *ngFor="let task of tasks" class="list-group-item">-->
+        <!--<div class="task-checkbox">-->
+            <!--<input type="checkbox"-->
+                   <!--class="list-child"-->
+                   <!--(change)="onTaskChange($event, task)"-->
+                   <!--[checked]="task.completed" >-->
+          <!--<span ngClass="{{task.completed ? 'name completed' : 'name'}}"> <b> Title:</b> {{ task.title | titlecase }}</span>-->
+          <!--<span> <b> Status:</b> {{ task.completed ? 'Completed' : 'Pending' }}</span>-->
+          <!--<span class="pull-right ml-auto"> <b> Date Created:</b> {{ task.createdAt | date:'MM/dd/yyyy'}}</span>-->
+        <!--</div>-->
+    <!--</li>-->
+<!--</ul>-->
+<div class="table-responsive mb-5">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="loading; else notloading">
+    <tr><td colspan="5"><h2>Loading Please Wait...</h2></td></tr>
+    </tbody>
+    <ng-template #notloading>
+      <tbody *ngFor="let task of tasks; let i = index" >
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.createdAt | date:'dd/MM/yyyy'}}</td>
+          <td>{{ task.completed ? 'Completed' : 'Pending' }}</td>
+        </tr>
+      </tbody>
+    </ng-template>
+  </table>
+
+</div>
