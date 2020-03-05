@@ -42,19 +42,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private static final String[] PUBLIC_MATCHERS = {
-            "/**",
             "/assets/**",
-            "/h2-console/**",
             "/v2/api-docs/**",
             "/swagger-ui.html/**",
             "/configuration/**",
             "/swagger-resources/**",
             "/webjars/**",
-            "/api/home",
-            "/api/auth/register",
-            "/api/auth/login",
-            "/api/test/**",
-            "/api/**"
+            "/api/auth/home",
+            "/api/auth/signup",
+            "/api/auth/signin",
     };
 
 
@@ -74,14 +70,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers(PUBLIC_MATCHERS).permitAll()
+                .authorizeRequests().antMatchers(PUBLIC_MATCHERS).permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
