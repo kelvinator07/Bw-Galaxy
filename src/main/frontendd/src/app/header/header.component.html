@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <a class="navbar-brand">BW Galaxy</a>
+  <ul class="navbar-nav mr-auto">
+    <li routerLinkActive="active" class="nav-item" *ngIf="!showAdminBoard && isLoggedIn">
+      <a class="nav-link" routerLink="user">Home </a>
+    </li>
+    <!--<li class="nav-item" *ngIf="showAdminBoard">-->
+      <!--<a class="nav-link" routerLink="admin/tasks">Home </a>-->
+    <!--</li>-->
+    <li routerLinkActive="active" class="nav-item" *ngIf="showAdminBoard">
+      <a class="nav-link" routerLink="admin/tasks">Admin Board</a>
+    </li>
+    <li routerLinkActive="active" class="nav-item" *ngIf="showAdminBoard">
+      <a class="nav-link" routerLink="admin/users/new">Add new User</a>
+    </li>
+    <li routerLinkActive="active" class="nav-item" *ngIf="showAdminBoard">
+      <a class="nav-link" routerLink="admin/tasks/new">Add new Task</a>
+    </li>
+    <!--<li class="nav-item">-->
+      <!--<a class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>-->
+    <!--</li>-->
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+    <li routerLinkActive="active" class="nav-item">
+      <a class="nav-link" routerLink="register">Sign Up</a>
+    </li>
+    <li routerLinkActive="active" class="nav-item">
+      <a class="nav-link" routerLink="login">Login</a>
+    </li>
+  </ul>
+
+  <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a class="nav-link">{{ username | titlecase }}</a>
+    </li>
+    <li class="nav-item">
+      <a href class="nav-link" (click)="logout()">LogOut</a>
+    </li>
+  </ul>
+</nav>

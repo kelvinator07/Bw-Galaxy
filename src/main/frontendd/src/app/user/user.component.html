@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="mt-5">Tasks List</h2>
+  <div class="table-responsive mb-5">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Date Created</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="loading; else notloading">
+      <tr><td colspan="5"><h2>Loading Please Wait...</h2></td></tr>
+      </tbody>
+      <ng-template #notloading>
+        <tbody *ngFor="let task of tasks; let i = index" >
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.createdAt | date:'dd/MM/yyyy'}}</td>
+          <td>{{ task.completed ? 'Completed' : 'Pending' }}</td>
+          <td><input type="checkbox" [checked]="task.completed" (change)="onTaskChange($event, task)" /></td>
+        </tr>
+        </tbody>
+      </ng-template>
+
+    </table>
+
+  </div>
+
+</div>
