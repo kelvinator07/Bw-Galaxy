@@ -42,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private static final String[] PUBLIC_MATCHERS = {
+            "/**",
             "/assets/**",
             "/v2/api-docs/**",
             "/swagger-ui.html/**",
